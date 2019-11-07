@@ -29,7 +29,7 @@ end
 # unset irrelevant variables
 deactivate nondestructive
 
-set -gx VIRTUAL_ENV "/home/i7-workstation/Desktop/O.S. project/Patra2/venv"
+set -gx VIRTUAL_ENV "/home/i7-workstation/Desktop/O.S. project/Combined_patra3/Patra2/venv"
 
 set -gx _OLD_VIRTUAL_PATH $PATH
 set -gx PATH "$VIRTUAL_ENV/bin" $PATH

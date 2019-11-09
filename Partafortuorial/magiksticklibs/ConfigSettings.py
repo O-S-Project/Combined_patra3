@@ -1,6 +1,7 @@
 from .Scrollbar import Scrollbar
 from .LineNumber import LineMain
 from .StationaryFunc import StationaryFunction
+from .popupmenu import Popup
 # import .Scrollbar
 
 class Connect:
@@ -12,5 +13,6 @@ class Connect:
         LineMain(self.pad)
         Scrollbar(self.pad)
         StationaryFunction(self.pad)
+        Popup(self.pad)
 
         return

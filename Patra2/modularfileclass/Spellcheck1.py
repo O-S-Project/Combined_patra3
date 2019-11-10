@@ -1,9 +1,11 @@
 import tkinter as Tkinter
 from difflib import get_close_matches # for spelling recommendation
+from multiprocessing import dummy as multithreading
+import threading
 
 
 # add thread
-class Spellcheck:
+class Spellcheck(threading.Thread):
     """docstring for Spellcheck."""
 
     # def __init__(self, text):
@@ -18,14 +20,46 @@ class Spellcheck:
 
     def __init__(self, text,statusbar=None):
         # super(Spellcheck, self).__init__()
+        # self.text = text
+        # self._words=open("/usr/share/dict/words").read().split("\n")
+        #
+        # self.text.tag_configure("misspelled", foreground="red", underline=True)
+        # #highlight it?
+        # self.statusbar = statusbar
+        # self.functions_binding_key()
+        self.statusbar = statusbar
         self.text = text
+        threading.Thread.__init__(self)
+        self.start()
+        # self.pool = multithreading.Pool(1)
+        # self.pool.apply(self.run)
+        # self.pool.apply(someClass.doSomethingElse)
+        # self.pool.apply(someClass.doSomething)
+
+
+    def run(self):
+
         self._words=open("/usr/share/dict/words").read().split("\n")
 
         self.text.tag_configure("misspelled", foreground="red", underline=True)
         #highlight it?
-        self.statusbar = statusbar
-        self.functions_binding_key()
 
+        print("you are in spell check thread")
+        print(threading.current_thread())
+        print("print number of threads")
+        print(threading.active_count())
+        print("main thread number")
+        print(threading.main_thread())
+        print(threading.activeCount())
+
+
+        self.functions_binding_key()
+        # self.text.bind("<space>", self.spellcheck_exp_)
+        # self.text.bind("<space>", self.spellcheck_exp_)
+
+
+
+        pass
 
     def functions_binding_key(self):
 
@@ -59,9 +93,12 @@ class Spellcheck:
             patterns = self._words
             wordrec = get_close_matches(word, patterns)
             # wordrec = closeMatches(patterns, word)
+            print(threading.current_thread())
+
             self.statusbar.update_status1(wordrec)
 
-
+        # self.pool.close()
+        # self.pool.join()
 
 
 

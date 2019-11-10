@@ -45,8 +45,8 @@ class Menubar:
         menubar.add_cascade(label = "About", menu = about_dropdown)
 
     def show_abtmenu(self):
-        box_title = "This is a Patra 1.01"
-        box_meage = "Multithreading is still pending"
+        box_title = "This is a Patra 2.00"
+        box_meage = "This is a basic test editor project For Course O.S. 2019\nCOE17B020 COE17B024 CED17I047"
         messagebox.showinfo(box_title,box_meage)
 
     def sour_cecoed(self):
@@ -76,7 +76,7 @@ class Statubar(threading.Thread):
         self.status.set("Patra - 0.1 contain")
         font_specs = ("ubuntu", 14)
 
-        print("you are testing thread ")
+        print("you are status bar thread ")
         print(threading.current_thread())
         print("ok")
         label = tk.Label(self.parent.textarea , textvariable = self.status , fg = "black" , bg = "lightgrey",anchor = 'sw',font = font_specs)

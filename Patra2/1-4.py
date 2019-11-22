@@ -10,6 +10,8 @@ from modularfileclass.COpypasteSelct import StationaryFunction
 from modularfileclass.Spellcheck1 import Spellcheck
 from difflib import get_close_matches # for spelling recommendation
 
+from modularfileclass.Findandrplace import FindReplaceFunctions
+
 class Menubar:
 
     def __init__(self,parent):
@@ -173,7 +175,7 @@ class Patra:
 
         self.rum(master)
 
-        print("you are main thread? i nclass ")
+        print("you are main thread? in class ")
         print(threading.current_thread())
         print("ok1")
 
@@ -205,7 +207,7 @@ class Patra:
         # extra features
         # linenumber
         # copy paste select undo redo
-        self.textarea.storeobj = {}     #//required fro copypaste select
+        self.textarea.storeobj = {}     #//required fro copypaste select as object that can be passed as function naem
         self.Line = LineMain(self.textarea)
         self.copypasteselect = StationaryFunction(self.textarea)
 
@@ -215,6 +217,8 @@ class Patra:
 
 
         self.bind_shortcuts()
+
+        FindReplaceFunctions(self.textarea)
 
 
 
@@ -428,7 +432,7 @@ class Patra:
 if __name__== "__main__":
     master = tk.Tk()
     pt = Patra(master)
-    print("you are main thread? not in class ")
+    print("you are main thread? the main fucntion ")
     print(threading.current_thread())
     print("ok1")
     master.mainloop()

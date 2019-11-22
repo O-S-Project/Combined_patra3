@@ -93,7 +93,7 @@ class Spellcheck(threading.Thread):
             patterns = self._words
             wordrec = get_close_matches(word, patterns)
             # wordrec = closeMatches(patterns, word)
-            print(threading.current_thread())
+            # print(threading.current_thread())
 
             self.statusbar.update_status1(wordrec)
 
